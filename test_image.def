@@ -4,7 +4,7 @@ From: ubuntu:18.04
 %labels
     Author: Leslie M. Wubbel
     Maintainer: Leslie M. Wubbel
-    Version: v0.0.1
+    Version: v0.0.0
     
 %post
     apt-get update -y
