@@ -10,7 +10,43 @@ From: ubuntu:18.04
     apt-get update -y
     apt-get install wget -y
     apt-get install git -y
+
+       ## Basic installations 
+    apt-get update -y
+    apt install software-properties-common -y 
+    apt-add-repository universe -y 
+
+    # Install miniconda3 ### reference from Author: Jason C. Nucciarone
+    if [ ! -d /usr/local/miniconda ]; then
+       wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+       	    -O ~/anaconda.sh && \
+	    bash ~/anaconda.sh -b -p /usr/local/miniconda && \
+	    rm ~/anaconda.sh
+    fi
     
+    # Initialize environment and update conda
+    export PATH=/usr/local/miniconda/bin:${PATH}
+    export LD_LIBRARY_PATH=/usr/local/miniconda/lib:${LD_LIBRARY_PATH}
+    conda update conda
+
+    ## Conda installation list
+    conda install -y cudatoolkit=9.0
+
+
+    ## Nivida drivers 
+    # https://www.mvps.net/docs/install-nvidia-drivers-ubuntu-18-04-lts-bionic-beaver-linux/
+    add-apt-repository ppa:graphics-drivers/ppa
+    apt install nvidia-cuda-toolkit -y
+    nvcc -V
+    apt install clinfo -y
+    apt update -y 
+    apt install nvidia-driver-390 -y 31
+
+    ### ACI 
+    #Set up the environment $ export PATH=/usr/local/cuda-9.1/bin:$PATH $ export LD_LIBRARY_PATH=/usr/local/cuda-9.1/lib64:$LD_LIBRARY_PATH $ export CPATH=/usr/local/cuda-9.1/samples/common/inc:$CPATH
+    DEBIAN_FRONTEND=noninteractive 
+    apt-get install keyboard-configuration
+
     ## Software needed to run OpenCV
     apt-get update -y
     apt install software-properties-common -y 
