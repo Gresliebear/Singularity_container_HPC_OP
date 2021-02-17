@@ -11,8 +11,9 @@ Hosted on Singularity-hub.org
 https://singularity-hub.org/collections/5024
 
 To pull the image from Singularity Hub
+```singularity pull shub://Gresliebear/Singularity_container_HPC_OP:op_py2_image```
+Python 2
 ```singularity pull shub://Gresliebear/Singularity_container_HPC_OP:op_image```
-
 OS - Ubuntu 18.04 
 Python version 3.7 
 
